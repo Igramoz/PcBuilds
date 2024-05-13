@@ -1,0 +1,3894 @@
+openapi: 3.0.0
+info:
+  description: API for CRUD operation on pc builds
+  version: 1.0.0
+  title: PcBuilds
+security:
+  - cookieAuth: []
+paths:
+  /components/chipsets:
+    get:
+      summary: Get all chipsets
+      operationId: GetAllChipsets
+      tags: [Chipsets]
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/chipset"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+
+    post:
+      summary: Add new chipset
+      operationId: AddChipset
+      tags: [Chipsets]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/chipset"
+      responses:
+        "201":
+          description: operazione riuscita
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/chipset"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+  /components/chipsets/{chipset}:
+    get:
+      summary: Get chipset by chipset
+      operationId: GetChipset by chipset
+      tags: [Chipsets]
+      parameters:
+        - name: chipset
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/chipset"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+    put:
+      summary: Modify chipset
+      operationId: ModifyChipset
+      tags: [Chipsets]
+      parameters:
+        - name: chipset
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/chipset"
+      responses:
+        "201":
+          description: operazione riuscita
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/chipset"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+    delete:
+      summary: Delete chipset
+      operationId: DeleteChipset
+      tags: [Chipsets]
+      parameters:
+        - name: chipset
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Operation success
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+  /components/types_ram:
+    get:
+      summary: Get all types of RAM
+      operationId: GetAllTypeRam
+      tags: [Ram types]
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/type_ram"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+    post:
+      summary: Add new type of RAM
+      operationId: AddTypeRam
+      tags: [Ram types]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/type_ram"
+      responses:
+        "201":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/type_ram"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+  /components/types_ram/{id}:
+    get:
+      summary: Get type of RAM by ID
+      operationId: GetTypeRam
+      tags: [Ram types]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/type_ram"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+    put:
+      summary: Update type of RAM by ID
+      operationId: UpdateTypeRam
+      tags: [Ram types]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/type_ram"
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/type_ram"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+    delete:
+      summary: Delete type of RAM by ID
+      operationId: DeleteTypeRam
+      tags: [Ram types]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Operation success
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+  /components/storage_lengths:
+    get:
+      summary: Get all storage_length
+      operationId: GetAllstorage_length
+      tags: [Storage length]
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/storage_length"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal server error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+    post:
+      summary: Add storage_length
+      operationId: Addstorage_length
+      tags: [Storage length]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storage_length"
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/storage_length"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal server error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+  /components/storage_lengths/{length}:
+    get:
+      summary: Get storage_length by id
+      operationId: Getstorage_lengthById
+      tags: [Storage length]
+      parameters:
+        - name: length
+          in: path
+          required: true
+          schema:
+            $ref: "#/components/schemas/storage_length"
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/storage_length"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+        "500":
+          description: Internal server error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    put:
+      summary: Modify storage_length
+      operationId: Modifystorage_length
+      tags: [Storage length]
+      parameters:
+        - name: length
+          in: path
+          required: true
+          schema:
+            $ref: "#/components/schemas/storage_length"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storage_length"
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/storage_length"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "404":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: internale server error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+    delete:
+      summary: Delete storage_length
+      operationId: Deletestorage_length
+      tags: [Storage length]
+      parameters:
+        - name: length
+          in: path
+          required: true
+          schema:
+            $ref: "#/components/schemas/storage_length"
+      responses:
+        "204":
+          description: Operation success
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+  /components/cpus:
+    get:
+      summary: Get all cpus
+      operationId: GetAllCpus
+      tags: [Cpus]
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/cpu"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+    post:
+      summary: Add new cpu
+      operationId: AddCpu
+      tags: [Cpus]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/cpuUpAdd"
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/cpuUpAdd"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+  /components/cpus/{id}:
+    get:
+      summary: Get cpu by id
+      operationId: GetCpuById
+      tags: [Cpus]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/cpu"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+    put:
+      summary: Modify cpu by id
+      operationId: ModifyCpuById
+      tags: [Cpus]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/cpuUpAdd"
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/cpu"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    delete:
+      summary: Delete cpu by id
+      operationId: DeleteCpuById
+      tags: [Cpus]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "204":
+          description: Operation success
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internl Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+  /components/cpus/chipset/{chipset}:
+    get:
+      summary: Get all cpus by chipset
+      operationId: GetAllCpusByChipset
+      tags: [Cpus]
+      parameters:
+        - name: chipset
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/cpu"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+  /components/psu:
+    get:
+      summary: Get all psu
+      operationId: GetAllPsu
+      tags: [Psu]
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/psu"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    post:
+      summary: Add psu
+      operationId: AddPsu
+      tags: [Psu]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/psuUpAdd"
+      responses:
+        "201":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/psu"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+  /components/psu/{id}:
+    get:
+      summary: Get psu by id
+      operationId: GetPsuById
+      tags: [Psu]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/psu"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    put:
+      summary: Update psu by id
+      operationId: UpdatePsuById
+      tags: [Psu]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/psuUpAdd"
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/psu"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    delete:
+      summary: Delete psu by id
+      operationId: DeletePsuById
+      tags: [Psu]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "204":
+          description: Operation success
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internl Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+  /components/gpus:
+    get:
+      summary: Get all gpus
+      operationId: GetAllGpus
+      tags: [Gpus]
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/gpu"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    post:
+      summary: Add a gpu
+      operationId: AddGpu
+      tags: [Gpus]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/gpuUpAdd"
+      responses:
+        "201":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/gpu"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+  /components/gpus/{id}:
+    get:
+      summary: Get gpu by id
+      operationId: GetGpuById
+      tags: [Gpus]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/gpu"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    put:
+      summary: Modify a gpu by id
+      operationId: ModifyById
+      tags: [Gpus]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/gpuUpAdd"
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/gpu"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    delete:
+      summary: Delete a gpu by id
+      operationId: DeleteById
+      tags: [Gpus]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "204":
+          description: Operation success
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internl Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+
+  /components/cpu_coolers:
+    get:
+      summary: Get all cpu coolers
+      operationId: GetAllCpucoolers
+      tags: [Cpu coolers]
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/cpu_cooler"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    post:
+      summary: Add cpu cooler
+      operationId: AddCpucooler
+      tags: [Cpu coolers]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/cpu_coolerUpAdd"
+      responses:
+        "201":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/cpu_cooler"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+  /components/cpu_coolers/{id}:
+    get:
+      summary: Get a cpu cooler by id
+      operationId: GetCpucoolersById
+      tags: [Cpu coolers]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/cpu_cooler"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    put:
+      summary: Modify cpu coolers by id
+      operationId: ModifyCpucoolersById
+      tags: [Cpu coolers]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/cpu_coolerUpAdd"
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/cpu_cooler"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    delete:
+      summary: Delete cpu cooler by id
+      operationId: DeleteCpucoolersById
+      tags: [Cpu coolers]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "204":
+          description: Operation success
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internl Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+  /components/case:
+    get:
+      summary: Get all cases
+      operationId: GetAllCases
+      tags: [Case]
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/case"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+    post:
+      summary: Add case
+      operationId: AddCase
+      tags: [Case]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/caseUpAdd"
+      responses:
+        "201":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/case"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+  /components/case/{id}:
+    get:
+      summary: Get case by id
+      operationId: GetCaseById
+      tags: [Case]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/case"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    put:
+      summary: Modify a case by id
+      operationId: ModifyCaseById
+      tags: [Case]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/caseUpAdd"
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/case"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    delete:
+      summary: Delete case by id
+      operationId: DeleteCaseById
+      tags: [Case]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "204":
+          description: Operation success
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internl Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+  /components/storage:
+    get:
+      summary: Get all storage
+      operationId: GetAllStorage
+      tags: [Storage]
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/storage"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    post:
+      summary: Add storage
+      operationId: AddStorage
+      tags: [Storage]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storageUpAdd"
+      responses:
+        "201":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/storage"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+  /components/storage/{id}:
+    get:
+      summary: Get storage by id
+      operationId: GetStorageById
+      tags: [Storage]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/storage"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    put:
+      summary: Modify storage by id
+      operationId: ModifyStorageById
+      tags: [Storage]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storageUpAdd"
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/storage"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    delete:
+      summary: Delete Storage by id
+      operationId: DeleteStorageById
+      tags: [Storage]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "204":
+          description: Operation success
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internl Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+  /components/ram:
+    get:
+      summary: Get all ram
+      operationId: GetAllRam
+      tags: [Ram]
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ram"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    post:
+      summary: Add ram
+      operationId: AddRam
+      tags: [Ram]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ramUpAdd"
+      responses:
+        "201":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/ram"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+  /components/ram/{id}:
+    get:
+      summary: Get ram by id
+      operationId: GetRamById
+      tags: [Ram]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/ram"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    put:
+      summary: Modify ram by id
+      operationId: ModifyRamById
+      tags: [Ram]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ramUpAdd"
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/ram"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    delete:
+      summary: Delete ram by id
+      operationId: DeleteRamById
+      tags: [Ram]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "204":
+          description: Operation success
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internl Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+  /components/motherboard:
+    get:
+      summary: Get all motherboards
+      operationId: GetAllMotherboards
+      tags: [Motherboard]
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/motherboard"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+    post:
+      summary: Add motherboard
+      operationId: AddMotherboard
+      tags: [Motherboard]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/motherboardUpAdd"
+      responses:
+        "201":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/motherboard"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+  /components/motherboard/{id}:
+    get:
+      summary: Get motherboard by id
+      operationId: GetMotherboardById
+      tags: [Motherboard]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/motherboard"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+    put:
+      summary: Modify motherboard by id
+      operationId: ModifyMotherboardById
+      tags: [Motherboard]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/motherboardUpAdd"
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/motherboard"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+    delete:
+      summary: Delete motherboard by id
+      operationId: DeleteMotherboardById
+      tags: [Motherboard]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "204":
+          description: Operation success
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internl Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+  /components/qvl:
+    get:
+      summary: Get all qvl
+      operationId: GetAllQvl
+      tags: [Qvl]
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/qvl"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+    post:
+      summary: Add qvl
+      operationId: AddQvl
+      tags: [Qvl]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/qvlUpAdd"
+      responses:
+        "201":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/qvl"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+  /components/qvl/{id}:
+    get:
+      summary: Get qvl by id
+      operationId: GetQvlById
+      tags: [Qvl]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/qvl"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+    put:
+      summary: Modify qvl by id
+      operationId: ModifyQvlById
+      tags: [Qvl]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/qvlUpAdd"
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/qvl"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    delete:
+      summary: Delete qvl by id
+      operationId: DeleteQvlById
+      tags: [Qvl]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "204":
+          description: Operation success
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internl Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+  /users:
+    get:
+      summary: Get all users
+      operationId: GetAllUsers
+      tags: [Users]
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/user"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    post:
+      summary: Add user
+      operationId: AddUser
+      tags: [Users]
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/user_gtoken"
+      responses:
+        "201":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/userUpAdd"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+  /users/{mail}:
+    get:
+      summary: Get user by mail
+      operationId: GetUserByMail
+      tags: [Users]
+      parameters:
+        - name: mail
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/user"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    put:
+      summary: Modify user by mail
+      operationId: ModifyUserByMail
+      tags: [Users]
+      parameters:
+        - name: mail
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/userUpAdd"
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/user"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    delete:
+      summary: Delete user by mail
+      operationId: DeleteUserByMail
+      tags: [Users]
+      parameters:
+        - name: mail
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Operation success
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internl Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+  /builds:
+    get:
+      summary: Get all builds
+      operationId: GetAllBuilds
+      tags: [Builds]
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/builds"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    post:
+      summary: Add build
+      operationId: AddBuild
+      tags: [Builds]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/buildsUpAdd"
+      responses:
+        "201":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/builds"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+  /builds/{id}:
+    get:
+      summary: Get build by id
+      operationId: GetBuildById
+      tags: [Builds]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/builds"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    put:
+      summary: Modify build by id
+      operationId: ModifyBuildById
+      tags: [Builds]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/buildsUpAdd"
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/builds"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    delete:
+      summary: Delete build by id
+      operationId: DeleteBuildById
+      tags: [Builds]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "204":
+          description: Operation success
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internl Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+  /user_builds:
+    get:
+      summary: Get all user_builds
+      operationId: GetAllUserBuilds
+      tags: [User_Builds]
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/user_builds"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    post:
+      summary: Add user_build
+      operationId: AddUserBuild
+      tags: [User_Builds]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/user_buildsUpAdd"
+      responses:
+        "201":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/user_builds"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+  /user_builds/{id}:
+    get:
+      summary: Get user_build by id
+      operationId: GetUserBuildById
+      tags: [User_Builds]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/user_builds"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    put:
+      summary: Modify user_build by id
+      operationId: ModifyUserBuildById
+      tags: [User_Builds]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/user_buildsUpAdd"
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/user_builds"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "403":
+          description: Forbidden
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+    delete:
+      summary: Delete user_build by id
+      operationId: DeleteUserBuildById
+      tags: [User_Builds]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "204":
+          description: Operation success
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internl Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+  /user_builds/user/{email}:
+    get:
+      summary: Get user_build by email
+      operationId: GetUserBuildByEmail
+      tags: [User_Builds]
+      parameters:
+        - name: email
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/user_builds"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+
+  /login:
+    post:
+      summary: Oauth with google credentials
+      operationId: GetToken
+      tags: [Login]
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/user_gtoken"
+      responses:
+        "200":
+          description: Operation success, token is returned in a cookie named 'PcBuildsToken'
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/user_gtoken"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+      
+
+#compatibilita tra cpu-motherboard motherboard-ram motherboard-ssd /////  case-gpu 
+
+
+######################################################################################################################################################################################################################
+
+components:
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: token
+  schemas:
+    error:
+      properties:
+        message:
+          type: string
+    InternalError:
+      properties:
+        message:
+          type: string
+        errors:
+          type: string
+    chipset:
+      properties:
+        chipset:
+          type: string
+    storage_length:
+      properties:
+        storage_length:
+          type: integer
+          format: int32
+    type_ram:
+      properties:
+        type_ram:
+          type: string
+    cpu:
+      properties:
+        id:
+          type: integer
+          format: int32
+        ncore:
+          type: integer
+          format: int32
+        nthreads:
+          type: integer
+          format: int32
+        models:
+          type: string
+        architecture:
+          type: string
+        chipset:
+          type: string
+        name:
+          type: string
+    cpuUpAdd:
+      properties:
+        ncore:
+          type: integer
+          format: int32
+        nthreads:
+          type: integer
+          format: int32
+        models:
+          type: string
+        architecture:
+          type: string
+        chipset:
+          type: string
+        name:
+          type: string
+    psu:
+      properties:
+        id:
+          type: integer
+          format: int32
+        watt:
+          type: integer
+          format: int32
+        models:
+          type: string
+        brand:
+          type: string
+        efficency:
+          type: string
+        name:
+          type: string
+    psuUpAdd:
+      properties:
+        watt:
+          type: integer
+          format: int32
+        models:
+          type: string
+        brand:
+          type: string
+        efficency:
+          type: string
+        name:
+          type: string
+    gpu:
+      properties:
+        id:
+          type: integer
+          format: int32
+        brand:
+          type: string
+        models:
+          type: string
+        watt:
+          type: integer
+          format: int32
+        length:
+          type: integer
+          format: int32
+        architecture:
+          type: string
+        name:
+          type: string
+    gpuUpAdd:
+      properties:
+        brand:
+          type: string
+        models:
+          type: string
+        watt:
+          type: integer
+          format: int32
+        length:
+          type: integer
+          format: int32
+        architecture:
+          type: string
+        name:
+          type: string
+    cpu_cooler:
+      properties:
+        id:
+          type: integer
+          format: int32
+        watt:
+          type: integer
+          format: int32
+        brand:
+          type: string
+        model:
+          type: string
+        tipo:
+          type: string
+        length:
+          type: integer
+          format: int32
+        name:
+          type: string
+    cpu_coolerUpAdd:
+      properties:
+        watt:
+          type: integer
+          format: int32
+        brand:
+          type: string
+        model:
+          type: string
+        tipo:
+          type: string
+        length:
+          type: integer
+          format: int32
+        name:
+          type: string
+    case:
+      properties:
+        id:
+          type: integer
+          format: int32
+        model:
+          type: string
+        brand:
+          type: string
+        length:
+          type: integer
+          format: int32
+        height:
+          type: integer
+          format: int32
+        width:
+          type: integer
+          format: int32
+        name:
+          type: string
+        max_gpu_length:
+          type: integer
+          format: int32
+    caseUpAdd:
+      properties:
+        model:
+          type: string
+        brand:
+          type: string
+        length:
+          type: integer
+          format: int32
+        height:
+          type: integer
+          format: int32
+        width:
+          type: integer
+          format: int32
+        name:
+          type: string
+        max_gpu_length:
+          type: integer
+          format: int32
+    storage:
+      properties:
+        id:
+          type: integer
+          format: int32
+        models:
+          type: string
+        name:
+          type: string
+        brand:
+          type: string
+        storage:
+          type: integer
+          format: int32
+        storage_length:
+          type: integer
+          format: int32
+        tipo:
+          type: string
+    storageUpAdd:
+      properties:
+        models:
+          type: string
+        name:
+          type: string
+        brand:
+          type: string
+        storage:
+          type: integer
+          format: int32
+        storage_length:
+          type: integer
+          format: int32
+        tipo:
+          type: string
+    ram:
+      properties:
+        id:
+          type: integer
+          format: int32
+        brand:
+          type: string
+        models:
+          type: string
+        storage:
+          type: integer
+          format: int32
+        latency:
+          type: integer
+          format: int32
+        frequency:
+          type: integer
+          format: int32
+        numbers:
+          type: integer
+          format: int32
+        types_ram:
+          type: string
+        name:
+          type: string
+    ramUpAdd:
+      properties:
+        brand:
+          type: string
+        models:
+          type: string
+        storage:
+          type: integer
+          format: int32
+        latency:
+          type: integer
+          format: int32
+        frequency:
+          type: integer
+          format: int32
+        numbers:
+          type: integer
+          format: int32
+        types_ram:
+          type: string
+        name:
+          type: string
+    motherboard:
+      properties:
+        id:
+          type: integer
+          format: int32
+        brand:
+          type: string
+        name:
+          type: string
+        models:
+          type: string
+        chipset:
+          type: string
+        types_ram:
+          type: string
+        description:
+          type: string
+        ssd_length:
+          type: integer
+          format: int32
+    motherboardUpAdd:
+      properties:
+        brand:
+          type: string
+        name:
+          type: string
+        models:
+          type: string
+        chipset:
+          type: string
+        types_ram:
+          type: string
+        description:
+          type: string
+        ssd_length:
+          type: integer
+          format: int32
+    user:
+      properties:
+        email:
+          type: string
+        name:
+          type: string
+        image:
+          type: string
+        token:
+          type: string
+    userUpAdd:
+      properties:
+        name:
+          type: string
+        image:
+          type: string
+        token:
+          type: string
+    user_gtoken:
+      properties:
+        token:
+          type: string
+    builds:
+      properties:
+        id:
+          type: integer
+          format: int32
+        case_id:
+          type: integer
+          format: int32
+        cpu_id:
+          type: integer
+          format: int32
+        motherboard_id:
+          type: integer
+          format: int32
+        ram_id:
+          type: integer
+          format: int32
+        psu_id:
+          type: integer
+          format: int32
+        storage_id:
+          type: integer
+          format: int32
+        gpu_id:
+          type: integer
+          format: int32
+        cpu_cooler_id:
+          type: integer
+          format: int32
+    buildsUpAdd:
+      properties:
+        case_id:
+          type: integer
+          format: int32
+        cpu_id:
+          type: integer
+          format: int32
+        motherboard_id:
+          type: integer
+          format: int32
+        ram_id:
+          type: integer
+          format: int32
+        psu_id:
+          type: integer
+          format: int32
+        storage_id:
+          type: integer
+          format: int32
+        gpu_id:
+          type: integer
+          format: int32
+        cpu_cooler_id:
+          type: integer
+          format: int32
+    qvl:
+      properties:
+        id:
+          type: integer
+          format: int32
+        motherboard_id:
+          type: integer
+          format: int32
+        ram_id:
+          type: integer
+          format: int32
+    qvlUpAdd:
+      properties:
+        motherboard_id:
+          type: integer
+          format: int32
+        ram_id:
+          type: integer
+          format: int32
+    user_builds:
+      properties:
+        id:
+          type: integer
+          format: int32
+        username_id:
+          type: string
+        build_id:
+          type: integer
+          format: int32
+    user_buildsUpAdd:
+      properties:
+        username_id:
+          type: string
+        build_id:
+          type: integer
+          format: int32
+######################################################################################################################################################################################################################
