@@ -124,8 +124,42 @@ graph TD;
     Api/login-->ReturnToken;
     ReturnToken-->WebAppHome;
 ```
-
-
-
 </div>
+
+<br>
+
+## Api
+
+The Api is a RESTful Api that provides the backend services for the WebApp, it uses Express to create the routes and handle the requests, it also uses Mysql to store the data, the api is also provided with a documentation with [Swagger](https://swagger.io/).
+
+The Api has also a security layer that uses [JWT](https://jwt.io/) to authenticate and authorize the users.
+
+Here an example of an endpoint that give the information about a cpu.
+
+<br>
+
+```javascript
+routes.get('/components/cpus',VerifyToken('user'), async (req, res) => {
+
+    try{
+
+        connection.query('SELECT * FROM cpus', (error, results, fields) => {
+            if (error){
+                return res.status(500).json({message: "Internal server error", error: error});
+            }
+
+            if (results.length === 0){
+                return res.status(404).json({message: "No cpus found"});
+            }
+
+            return res.status(200).json(results);
+
+        });
+    }catch(error){
+        return res.status(500).json({message: "Internal server error", error: error});
+    }
+    
+});
+```
+
 
