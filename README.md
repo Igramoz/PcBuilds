@@ -216,11 +216,9 @@ paths:
 
 Here what the swagger documentation looks like in the browser:
 
-<div align=centre>
+<div align=center>
 
-<img width="649" alt="image" src="https://github.com/Igramoz/PcBuilds/assets/81182912/c13fc1fe-b714-4ed7-b548-ad2e437bfe39">
-
-
+<img width="649" alt="image" src="https://github.com/Igramoz/PcBuilds/assets/81182912/7b98c00c-d4b9-4ac0-bec2-9179ac8e6d50">
 
 </div>
 
