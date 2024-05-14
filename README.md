@@ -5,9 +5,11 @@
 </div>
 
 
-<h3>General Info<h3>
 
-PcBuilds is a WebApp that enables users to create a customized computer.
+<h3>General Info</h3>
+
+PcBuilds is a web application that allows users to create and share their pc builds, it provides a way to search for components and compare them, it also provides a way to get the best prices for the components.
+
 
 <br>
 
@@ -130,13 +132,12 @@ graph TD;
 
 ## Api
 
-The Api is a RESTful Api that provides the backend services for the WebApp, it uses Express to create the routes and handle the requests, it also uses Mysql to store the data, the api is also provided with a documentation with [Swagger](https://swagger.io/).
-
-The Api has also a security layer that uses [JWT](https://jwt.io/) to authenticate and authorize the users.
-
-Here an example of an endpoint that give the information about a cpu.
-
+<p>
+The Api is a RESTful Api that provides the backend services for the WebApp, it uses Express to create the routes and handle the requests, it also uses Mysql to store the data, the api is also provided with a documentation with [Swagger](https://swagger.io/). The Api has a security layer that uses [JWT](https://jwt.io/) to authenticate and authorize the users.
+</p>
 <br>
+Here an example of an endpoint that give the information about a cpu:
+
 
 ```javascript
 routes.get('/components/cpus',VerifyToken('user'), async (req, res) => {
@@ -161,5 +162,60 @@ routes.get('/components/cpus',VerifyToken('user'), async (req, res) => {
     
 });
 ```
+
+<br>
+
+Here an example of a part of the swagger documentation that describes the endpoint above:
+
+```yaml
+openapi: 3.0.0
+info:
+  description: API for CRUD operation on pc builds
+  version: 1.0.0
+  title: PcBuilds
+security:
+  - bearerAuth: []
+paths:
+  /components/chipsets:
+    get:
+      summary: Get all chipsets
+      operationId: GetAllChipsets
+      tags: [Chipsets]
+      responses:
+        "200":
+          description: Operation success
+          content:
+            "*/*":
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/chipset"
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "401":
+          description: Unauthorized
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                type: object
+                $ref: "#/components/schemas/InternalError"
+```
+<br>
+
+Here what the swagger documentation looks like in the browser:
+
+
 
 
