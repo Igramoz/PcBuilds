@@ -117,14 +117,21 @@ PcBuilds is a web application that allows users to create and share their pc bui
 <div align=center>
 
 ```mermaid
-graph TD;
-    WebAppLogin-->GoogleApi;
-    GoogleApi-->ReturnSuccess;
-    GoogleApi-->ReturnError;
-    ReturnError-->DisplayError;
-    ReturnSuccess-->Api/login;
-    Api/login-->ReturnToken;
-    ReturnToken-->WebAppHome;
+sequenceDiagram
+
+    participant User
+    participant WebApp
+    participant GoogleApi
+    participant Api
+
+    User->>WebApp: Click on login with google
+    WebApp->>GoogleApi: Request to login
+    GoogleApi->>WebApp: Send the user's gtoken
+    WebApp->>Api: Send the user's gtoken to the api/login
+    Api->>GoogleApi: Send the user's gtoken to google api for verification
+    GoogleApi->>Api: user is verified
+    Api->>WebApp: Send the token to the WebApp for authentication and authorization
+    WebApp->>User: User is logged in
 ```
 </div>
 
