@@ -74,7 +74,7 @@ PcBuilds is a WebApp that enables users to create a customized computer.
 
 <div align=center>
 
-## UI and Login/Register Page
+## Login/Register System
 
 </div>
 <br>
@@ -110,3 +110,22 @@ PcBuilds is a WebApp that enables users to create a customized computer.
             />
     </GoogleOAuthProvider>
 ```
+<br>
+
+<div align=center>
+
+```mermaid
+graph TD;
+    WebAppLogin-->GoogleApi;
+    GoogleApi-->ReturnSuccess;
+    GoogleApi-->ReturnError;
+    ReturnError-->DisplayError;
+    ReturnSuccess-->Api/login;
+    Api/login-->ReturnToken;
+    ReturnToken-->WebAppHome;
+```
+
+
+
+</div>
+
