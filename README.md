@@ -43,7 +43,7 @@ PcBuilds is a web application that allows users to create and share their pc bui
 <!-- Express -->
 
 <img alt='Express logo' src='https://expressjs.com/images/express-facebook-share.png' width='110' height='60'>
-</div>
+
 <br>
 
 [Express](https://expressjs.com/) a Node.js framework for backend development (Api).
