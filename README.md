@@ -218,7 +218,8 @@ Here what the swagger documentation looks like in the browser:
 
 <div align=centre>
 
-<img width="432" alt="image" src="https://github.com/Igramoz/PcBuilds/assets/81182912/7476485e-f83b-47aa-bcc7-03db1f85b21c">
+<img width="649" alt="image" src="https://github.com/Igramoz/PcBuilds/assets/81182912/c13fc1fe-b714-4ed7-b548-ad2e437bfe39">
+
 
 
 </div>
