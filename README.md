@@ -34,3 +34,12 @@ PcBuilds is a WebApp that enables users to create a customized computer
 <br>
 
 <!-- nodejs -->
+
+<div align=center>
+<img alt='Node logo' src='https://nodejs.org/static/images/logo.svg' width='80' height='80'>
+</div>
+<br>
+
+[Node.js](https://nodejs.org/en/) a Javascript runtime for backend development 
+<br>
+<br>
