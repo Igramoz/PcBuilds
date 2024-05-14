@@ -1,8 +1,3 @@
-
-
-
-
-
 <div align=center>
 
 # PcBuilds
@@ -12,7 +7,7 @@
 
 <h3>General Info<h3>
 
-PcBuilds is a WebApp that enables users to create a customized computer
+PcBuilds is a WebApp that enables users to create a customized computer.
 
 <br>
 
@@ -29,7 +24,7 @@ PcBuilds is a WebApp that enables users to create a customized computer
 </div>
 <br>
 
-[React](https://react.dev/) a Javascript FrameWork for frontend development
+[React](https://react.dev/) a Javascript FrameWork for frontend development.
 <br>
 <br>
 
@@ -40,10 +35,9 @@ PcBuilds is a WebApp that enables users to create a customized computer
 </div>
 <br>
 
-[Node.js](https://nodejs.org/en/) a Javascript runtime for backend development 
+[Node.js](https://nodejs.org/en/) a Javascript runtime for backend development.
 <br>
 <br>
-
 
 <!-- Express -->
 
@@ -52,7 +46,7 @@ PcBuilds is a WebApp that enables users to create a customized computer
 </div>
 <br>
 
-[Express](https://expressjs.com/) a Node.js framework for backend development (Api)
+[Express](https://expressjs.com/) a Node.js framework for backend development (Api).
 <br>
 <br>
 
@@ -63,7 +57,7 @@ PcBuilds is a WebApp that enables users to create a customized computer
 </div>
 <br>
 
-[Mysql](https://www.mysql.com/) a relational database management system
+[Mysql](https://www.mysql.com/) a relational database management system.
 <br>
 <br>
 
@@ -74,7 +68,7 @@ PcBuilds is a WebApp that enables users to create a customized computer
 </div>
 <br>
 
-[Bootstrap](https://getbootstrap.com/) a css framework for frontend development
+[Bootstrap](https://getbootstrap.com/) a css framework for frontend development.
 <br>
 <br>
 
@@ -83,3 +77,36 @@ PcBuilds is a WebApp that enables users to create a customized computer
 ## UI and Login/Register Page
 
 </div>
+<br>
+
+<!-- google login  -->
+
+<div align=center>
+<img alt='Google logo' src='https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png' width='200' height='70'>
+</div>
+
+<br>
+
+[Google Login](https://developers.google.com/identity/sign-in/web/sign-in) is a google authentication service for login and register users in the app, it uses OAuth 2.0 protocol to authenticate users and get their information from google account providing a secure and easy way to login in the app, it also provides a way to get the user's email, name and profile picture.
+
+<br>
+
+<!-- google login in react -->
+```
+    import { GoogleLogin } from 'react-google-login';
+
+    <GoogleOAuthProvider clientId="300229583546-cngao9upouq4souc4tree2umffabf9h5.apps.googleusercontent.com">
+            <GoogleLogin
+                onSuccess={credentialResponse => {
+
+                    // the user is logged in and the credentialResponse contains the user's information
+                
+                }}
+                onError={() => {
+                
+                    // an error occurred while trying to login the user
+
+                }}
+            />
+    </GoogleOAuthProvider>
+```
