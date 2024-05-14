@@ -17,7 +17,12 @@ PcBuilds is a web application that allows users to create and share their pc bui
 
 ## Architecture
 
+<br>
+<br>
+
 </div>
+
+### Frameworks and Technologies
 
 <!-- react -->
 
@@ -69,7 +74,7 @@ PcBuilds is a web application that allows users to create and share their pc bui
 <br>
 
 
-## Login/Register System
+### Login/Register System
 
 </div>
 <br>
