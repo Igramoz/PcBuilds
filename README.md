@@ -135,7 +135,7 @@ sequenceDiagram
 
 <br>
 
-## Api
+### Api
 
 
 The Api is a RESTful Api that provides the backend services for the WebApp, it uses Express to create the routes and handle the requests, it also uses Mysql to store the data, the api is also provided with a documentation with [Swagger](https://swagger.io/). The Api has a security layer that uses [JWT](https://jwt.io/) to authenticate and authorize the users.
