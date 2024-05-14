@@ -7,7 +7,7 @@
 
 <h3>General Info<h3>
 
-<h6>PcBuilds is a WebApp that enables users to create a customized computer</h6>
+PcBuilds is a WebApp that enables users to create a customized computer
 
 <br>
 
