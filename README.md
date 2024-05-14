@@ -24,7 +24,7 @@ PcBuilds is a WebApp that enables users to create a customized computer
 </div>
 <br>
 
-(https://react.dev/)React a Javascript FrameWork for frontend development
+(https://react.dev/) [React] a Javascript FrameWork for frontend development
 <br>
 <br>
 
@@ -35,7 +35,7 @@ PcBuilds is a WebApp that enables users to create a customized computer
 </div>
 <br>
 
-(https://nodejs.org/en/)Node.js a Javascript runtime for backend development 
+(https://nodejs.org/en/) [Node.js] a Javascript runtime for backend development 
 <br>
 <br>
 
@@ -46,7 +46,7 @@ PcBuilds is a WebApp that enables users to create a customized computer
 </div>
 <br>
 
-(https://expressjs.com/)Express a Node.js framework for backend development (Api)
+(https://expressjs.com/) [Express] a Node.js framework for backend development (Api)
 <br>
 <br>
 
@@ -57,7 +57,18 @@ PcBuilds is a WebApp that enables users to create a customized computer
 </div>
 <br>
 
-(https://www.mysql.com/)Mysql a relational database management system
+(https://www.mysql.com/) [Mysql] a relational database management system
+<br>
+<br>
+
+<!-- bootstrap -->
+
+<div align=center>
+<img alt='Bootstrap logo' src='https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-social-logo.png' width='100' height='60'>
+</div>
+<br>
+
+(https://getbootstrap.com/) [Bootstrap] a css framework for frontend development
 <br>
 <br>
 
