@@ -23,7 +23,7 @@ PcBuilds is a web application that allows users to create and share their pc bui
 
 <div align=center>
 <img alt='React logo' src='https://avatars.githubusercontent.com/u/6412038?s=280&v=4' width='60' height='60'>
-</div>
+
 <br>
 
 [React](https://react.dev/) a Javascript FrameWork for frontend development.
@@ -32,9 +32,8 @@ PcBuilds is a web application that allows users to create and share their pc bui
 
 <!-- nodejs -->
 
-<div align=center>
 <img alt='Node logo' src='https://nodejs.org/static/images/logo.svg' width='80' height='80'>
-</div>
+
 <br>
 
 [Node.js](https://nodejs.org/en/) a Javascript runtime for backend development.
@@ -43,7 +42,6 @@ PcBuilds is a web application that allows users to create and share their pc bui
 
 <!-- Express -->
 
-<div align=center>
 <img alt='Express logo' src='https://expressjs.com/images/express-facebook-share.png' width='110' height='60'>
 </div>
 <br>
@@ -54,9 +52,7 @@ PcBuilds is a web application that allows users to create and share their pc bui
 
 <!-- mysql -->
 
-<div align=center>
 <img alt='Mysql logo' src='https://www.mysql.com/common/logos/logo-mysql-170x115.png' width='110' height='90'>
-</div>
 <br>
 
 [Mysql](https://www.mysql.com/) a relational database management system.
@@ -65,16 +61,13 @@ PcBuilds is a web application that allows users to create and share their pc bui
 
 <!-- bootstrap -->
 
-<div align=center>
 <img alt='Bootstrap logo' src='https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-social-logo.png' width='60' height='60'>
-</div>
 <br>
 
 [Bootstrap](https://getbootstrap.com/) a css framework for frontend development.
 <br>
 <br>
 
-<div align=center>
 
 ## Login/Register System
 
@@ -139,9 +132,9 @@ sequenceDiagram
 
 ## Api
 
-<p>
+
 The Api is a RESTful Api that provides the backend services for the WebApp, it uses Express to create the routes and handle the requests, it also uses Mysql to store the data, the api is also provided with a documentation with [Swagger](https://swagger.io/). The Api has a security layer that uses [JWT](https://jwt.io/) to authenticate and authorize the users.
-</p>
+
 <br>
 Here an example of an endpoint that give the information about a cpu:
 
