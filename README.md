@@ -15,7 +15,7 @@ PcBuilds is a web application that allows users to create and share their pc bui
 
 <div align=center>
 
-## Architecture
+## Architecture of the WebApp
 
 <br>
 <br>
