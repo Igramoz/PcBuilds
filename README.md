@@ -8,14 +8,14 @@
 
 <h3>General Info</h3>
 
-PcBuilds is a web application that allows users to create and share their pc builds, it provides a way to search for components and compare them, it also provides a way to get the best prices for the components.
+PcBuilds is a web application that allows users to create their pc's configuration(hardware), it provides a way to search for components, allows users to create delete their configurations.
 
 
 <br>
 
 <div align=center>
 
-## Architecture of the WebApp
+## Architecture
 
 <br>
 <br>
@@ -37,7 +37,7 @@ PcBuilds is a web application that allows users to create and share their pc bui
 
 <!-- nodejs -->
 
-<img alt='Node logo' src='https://nodejs.org/static/images/logo.svg' width='80' height='80'>
+<img alt='Node logo' src='https://www.step2gen.com/WebsiteAssets/assets/images/nodejs.svg' width='80' height='80'>
 
 <br>
 
@@ -82,7 +82,7 @@ PcBuilds is a web application that allows users to create and share their pc bui
 <!-- google login  -->
 
 <div align=center>
-<img alt='Google logo' src='https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png' width='200' height='70'>
+<img alt='Google logo' src='https://miro.medium.com/v2/resize:fit:1400/1*u0bwdudgoyKjSLntsRcqiw.png' width='270' height='70'>
 </div>
 
 <br>
@@ -114,6 +114,8 @@ PcBuilds is a web application that allows users to create and share their pc bui
 
 <div align=center>
 
+<!--
+
 ```mermaid
 sequenceDiagram
 
@@ -131,6 +133,9 @@ sequenceDiagram
     Api->>WebApp: Send the token to the WebApp for authentication and authorization
     WebApp->>User: User is logged in
 ```
+
+todo: complete the sequence diagram
+ --> 
 </div>
 
 <br>
