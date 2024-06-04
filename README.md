@@ -233,5 +233,13 @@ Here what the swagger documentation looks like in the browser:
 
 </div>
 
+<br>
+<br>
+
+Here's a preview of the website
+<br>
+
+https://github.com/Igramoz/PcBuilds/assets/81182912/6631ec4e-bf4e-4d66-8137-4b0be628bf4d
+
 
 
